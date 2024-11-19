@@ -1,0 +1,12 @@
+#nav{
+    text-shadow: 2px 2px 3px rgb(255, 10, 10);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  
