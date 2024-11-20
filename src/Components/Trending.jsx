@@ -1,9 +1,4 @@
 import { useState,useEffect } from "react"
-import { BiLike } from "react-icons/bi";
-import { BiDislike } from "react-icons/bi";
-import ThemeValue from "../Context/ContextTheme";
-import { useContext } from "react";
-import Counter from "../Context/Counter";
 import { Link } from "react-router-dom";
 
 export const Trending=()=>{
@@ -12,8 +7,6 @@ const[value,setValue]=useState('');
 const[searchValue,setSearchValue]=useState('');
 const[category,setCategory]=useState('');
 const[Isloading,setIsLoading]=useState(true);
-const {theme} = useContext(ThemeValue);
-const {Like,HandleLike,HandleDislike,dislike} = useContext(Counter);
 const My_Key = import.meta.env.VITE_API_KEY;
 
 
@@ -99,10 +92,6 @@ const handlecategory=(genereId)=>{
                 <img src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}  alt={trend.title}
                 className="rounded-2xl border-2 border-black"/>
                <Link to={`/movie/${trend.id}`}>{trend.title ? <h1 className="font-bold font-sans text-lg text-blue-700 hover:underline">{trend.title}</h1> : <h1 className="text-lg text-center">"Title is not found"</h1>}</Link>
-                    <div className="flex justify-start p-1 gap-x-5 text-xl">
-                        <button type="button" onClick={()=>HandleLike(trend.id)} className="flex items-center"><BiLike />{Like[trend.id]||0}</button>
-                        <button type="button" onClick={()=>HandleDislike(trend.id)}className="flex items-center"><BiDislike />{dislike[trend.id||0]}</button>
-                    </div>
                     </div>
                 ))}
             </div>
