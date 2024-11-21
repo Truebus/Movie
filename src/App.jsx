@@ -9,11 +9,14 @@ import { NotFound } from './Components/NotFound'
 import { HandleToggler } from './Context/ContextTheme'
 import { HandleCounter } from './Context/Counter'
 import { DetailPage } from './Components/DetailPage'
+import { Cart } from './Components/Cart'
+import { HandleCart } from './Context/CartContext'
 
 function App() {
 
   return (
     <div>
+      <HandleCart>
       <HandleCounter>
       <HandleToggler>
       <BrowserRouter>
@@ -24,13 +27,14 @@ function App() {
         <Route path='/upcoming' element={<Upcoming/>}></Route>
         <Route path='/rated' element={<Rated/>}></Route>
         <Route path='/movie/:id' element={<DetailPage/>}></Route>
-
+        <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/*' element={<NotFound/>}></Route>
        
       </Routes>
       </BrowserRouter>
       </HandleToggler>
       </HandleCounter>
+      </HandleCart>
     </div>
   )
 }
