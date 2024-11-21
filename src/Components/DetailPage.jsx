@@ -42,11 +42,15 @@ const {Like,HandleLike,HandleDislike,dislike} = useContext(Counter);
         {Isloading?( 
           <h1>Loadig......</h1>
         ):(
-          <div 
-          style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w500${data?.backdrop_path}')`}} 
-          className="bg-cover bg-center bg-opacity-10"
-        >
-       
+          <div className="relative bg-cover bg-center ">
+          <div
+  style={{
+    backgroundImage: `url('https://image.tmdb.org/t/p/w500${data?.backdrop_path}')`, zIndex:-1,
+   
+  }}
+  className="absolute inset-0 bg-cover bg-center opacity-50"
+>
+</div>
             <h1 id="shadow" className="animate-pulse text-center font-semibold font-serif bg-amber-100 p-2 text-blue-600 text-xl shadow-yellow-300 shadow-md">Welcome To Detail Page</h1>
             <div className="flex p-[10px] gap-x-10 justify-around mt-5">
               <div className="ml-[20px] shadow-amber-600 shadow-xl p-2 border-2 border-gray-100">

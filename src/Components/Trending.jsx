@@ -1,5 +1,6 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect,useContext } from "react"
 import { Link } from "react-router-dom";
+import ThemeValue from "../Context/ContextTheme";
 
 export const Trending=()=>{
 const[trenddata,setTrendData]=useState([]);
@@ -8,7 +9,7 @@ const[searchValue,setSearchValue]=useState('');
 const[category,setCategory]=useState('');
 const[Isloading,setIsLoading]=useState(true);
 const My_Key = import.meta.env.VITE_API_KEY;
-
+const { theme } = useContext(ThemeValue);
 
 useEffect(()=>{
     const handledata=async()=>{
