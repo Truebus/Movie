@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,24 +27,40 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
+    <div className='flex justify-center p-[10px]' id='login'>
+      <div className='h-auto w-[350px] rounded-3xl p-[5px]' id='loginform'>
+    <form onSubmit={handleSubmit} className='flex flex-col p-[10px]'>
+      <h2 className='text-orange-600 font-serif font-bold text-2xl text-center'>Welcome Login Page</h2>
+      <h2 className='mt-2 mb-3 text-blue-900 text-center font-bold text-2xl'>Login via Email</h2>
+      <div>
+        <label htmlFor='email' className='font-semibold'>Enter Email:-</label>
+      <input id='email' className='mt-2 mb-3 w-full outline-none rounded-2xl p-2 focus:border-2 border-blue-800
+      shadow-md shadow-gray-400'
         type="email"
         placeholder="Enter email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <input
+      </div>
+      <div>
+        <label htmlFor='password' className='font-semibold'>Enter Password:-</label>
+      <input id='password' className='mt-2 mb-3 w-full outline-none rounded-2xl p-2 focus:border-2 border-blue-800
+      shadow-md shadow-gray-400'
         type="password"
         placeholder="Enter password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Login</button>
+      </div>
+      <button type="submit" className='mb-3 w-full bg-pink-300 p-1 font-semibold'>Login</button>
+      <p className='text-center'>Forgot password?
+      Don't have an account? <Link to={'/signup'} className='text-blue-600 font-semibold'> Register</Link></p>
+      <p className='text-center mt-3 text-gray-600'>By registering, you agree to ReelSpark's Terms of Use and Privacy Policy</p>
     </form>
+    </div>
+    </div>
   );
 };
 

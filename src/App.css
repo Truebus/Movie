@@ -12,3 +12,15 @@
   #shadow{
     text-shadow: 3px 3px 3px yellow;
   }
+  #sign{
+    background: linear-gradient(45deg, #FFDAB9, #FF7F50); 
+  }
+  #form{
+    background: linear-gradient(45deg, #E6E6FA, #FFB6C1); 
+  }
+  #login{
+    background: linear-gradient(45deg, #E6E6FA, #FFB6C1);
+  }
+  #loginform{
+    background: linear-gradient(to bottom, #A0F4D7, #FFF8DC);
+  }

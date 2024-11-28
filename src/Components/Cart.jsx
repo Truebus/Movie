@@ -9,7 +9,7 @@ const {addcart,clearcart,handleremove} = useContext(CartContext)
         <div>
     <div>
         {addcart.length===0?(
-            <h1>Your Cart is Empty.</h1>
+            <h1 className="flex items-center justify-center">Your Cart is Empty.</h1>
         ):( 
             <div>
             <div className="font-bold flex justify-end items-end p-2 flex-wrap">
