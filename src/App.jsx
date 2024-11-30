@@ -13,12 +13,16 @@ import { Cart } from './Components/Cart';
 import { AuthProvider } from './Context/AuthContext';
 import Login from './Components/Login';  // Correct import
 import Signup from './Components/Signup';  // Correct import
+import { HandleCounter } from './Context/Counter';
+import { Footer } from './Components/footer';
+import { Faq } from './Components/Faq';
 
 function App() {
   return (
     <div>
       <AuthProvider>
         <HandleCart>
+          <HandleCounter>
           <HandleToggler>
             <BrowserRouter>
               <NavBar />
@@ -31,10 +35,13 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} /> {/* Added Login route */}
                 <Route path="/signup" element={<Signup />} /> {/* Added Signup route */}
+                <Route path='/faq' element={<Faq/>}/>
                 <Route path="/*" element={<NotFound />} />
               </Routes>
+              <Footer/>
             </BrowserRouter>
           </HandleToggler>
+          </HandleCounter>
         </HandleCart>
       </AuthProvider>
     </div>
