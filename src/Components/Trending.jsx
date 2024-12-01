@@ -1,6 +1,7 @@
 import { useState,useEffect,useContext } from "react"
 import { Link } from "react-router-dom";
 import ThemeValue from "../Context/ContextTheme";
+import { FiLoader } from "react-icons/fi";
 
 export const Trending=()=>{
 const[trenddata,setTrendData]=useState([]);
@@ -56,7 +57,9 @@ const handlecategory=(genereId)=>{
     return(
         <div>
         {Isloading ? (
-        <div>Loading...</div>
+        <div className="flex justify-center items-center h-[400px] w-full text-3xl animate-spin">
+           <FiLoader />
+            </div>
       ) : (
             <div>
                 <div className={`flex justify-center items-center p-4 ${theme==='light'?'bg-rose-100':'bg-black'} w-full h-auto rounded-tr-3xl rounded-tl-3xl border-2 border-black`}>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import ThemeValue from "../Context/ContextTheme";
 import { Link } from "react-router-dom";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export const Upcoming = () => {
   const [upcomingdata, setUpcomingData] = useState({ results: [] });
@@ -54,7 +56,17 @@ export const Upcoming = () => {
   return (
     <div className="content">
       {Isloading ? (
-        <div>Loading.....</div>
+        <div>
+          <div className={`p-2 flex flex-wrap justify-around gap-4 ${theme === 'light' ? 'bg-gradient-to-tr from-blue-300 to-purple-300' : 'bg-black'}`}>
+        {[...Array(6)].map((_,index)=>(
+          <div key={index} className={`${theme === 'light' ? 'border-2 border-black' : 'border-white border-2'} h-auto w-[250px] p-2`}>
+            <Skeleton height={200} width="100%" />
+                <Skeleton count={1} height={20} width="80%" style={{ marginTop: '10px' }} />
+                <Skeleton count={1} height={15} width="60%" />
+          </div>
+        ))}
+          </div>
+        </div>
       ) : (
         <div className={`p-2 flex flex-wrap justify-around gap-4 ${theme === 'light' ? 'bg-gradient-to-tr from-blue-300 to-purple-300' : 'bg-black'}`}>
           {current.map((upcome) => (

@@ -3,6 +3,8 @@ import { useState,useEffect } from 'react'
 import ThemeValue from '../Context/ContextTheme';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export const Popular = () => {
   const[populardata,setPopularData]=useState({results:[]});
@@ -33,7 +35,13 @@ export const Popular = () => {
     <div>
       {Isloading ?( 
       <div>
-        <h1>Loading....</h1>
+        <div className={`flex flex-wrap justify-around p-2 gap-5 items-center ${theme==='light'?'bg-gradient-to-tl from-slate-300 to-gray-400':'bg-black'}`}>
+        {[...Array(6)].map((_, index) => (
+         <div key={index} className='h-[350px] w-[250px]'>
+          <Skeleton height={'100%'} width={'100%'}/>
+         </div>
+        ))}
+          </div>
       </div> ):( 
       <div className={`flex flex-wrap justify-around p-2 gap-5 items-center ${theme==='light'?'bg-gradient-to-tl from-slate-300 to-gray-400':'bg-black'}`}>
     {populardata.results.map((popular)=>(
