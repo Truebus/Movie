@@ -62,7 +62,7 @@ Once the app is running, you can:
 - Toggle between light and dark themes for a personalized experience.
 
 #screenshots:-
-![App Screenshot](./public/assets/screenshots/image.png)
+![App Screenshot](src\assets\screenshots\image.png)
 
 
 
